@@ -1,6 +1,6 @@
 # TestPie 
 * :round_pushpin: **加载测试数据(JSON、YAML或其它格式)，by** `@PieData`
-* :clapper: **隔离Mock code和TestUnit code，by** `@MockPrimay` or `@MockProvider`
+* :clapper: **隔离Mock code和UnitTest code，by** `@MockPrimay` or `@MockProvider`
 
 ## 依赖
 ### Requirements
