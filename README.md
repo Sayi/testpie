@@ -4,9 +4,8 @@
 
 ## 依赖
 ### Requirements
-* Jdk 1.8+
-* Junit 5
-* Mockito(可选，如果需要使用mock功能需要加入此依赖)
+* JUnit 5
+* Mockito(可选，如果需要使用mock功能)
 
 ### Gradle
 ```groovy
@@ -96,7 +95,7 @@ public class GsonJsonConverter implements Converter {
 ```
 
 ## `@MockPrimay`：为某个对象提供mock
-一个对象的Mock功能可以被**快速构造**和**复用**，通过一个单独的类提供对象的所有Mock功能，这个类称为：该对象的Mock类。就像这样:
+一个对象的Mock功能可以被**快速构造**和**复用**，通过一个独立的类提供对象的所有Mock功能，这个类称为：该对象的Mock类，就像这样:
 
 ```java
 Supplier<UserService> mock = new UserServiceMock();
@@ -128,7 +127,7 @@ public class UserServiceMock implements Consumer<UserService> {
 }
 ```
 
-2). 使用`@MockPrimay`初始化Mock功能
+2). 使用`@MockPrimay`快速初始化Mock对象
 
 ```java
 @Mock(lenient = true)
@@ -221,8 +220,11 @@ public class MockProviderTest {
 }
 
 ```
-每个测试方法会自动寻找`@MockProvider`指定的类的前缀为mock_的同名方法初始化Mock功能，比如testProvider方法执行前会执行MockProviderTestClassMock的mock_testProvider方法。
+每个测试方法会自动寻找`@MockProvider`指定类的前缀为mock_的同名方法去初始化Mock功能，比如testProvider方法执行前会执行MockProviderTestClassMock的mock_testProvider方法。
 
 `@MockProvider`的Mock功能会覆盖`@MockPrimary`的功能，即优先级更高。
+
+## 愿景
+希望TestPie未来能带来更好的単测编码体验。
 
 
